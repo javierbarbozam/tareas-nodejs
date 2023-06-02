@@ -1,0 +1,15 @@
+{
+  "name": "tareas-nodejs",
+  "version": "1.0.0",
+  "description": "calculator exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "javier barboza muñoz",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0"
+  }
+}
