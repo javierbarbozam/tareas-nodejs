@@ -1,10 +1,15 @@
-const addNumber = require ('./add.js');
-const substractNumber = require ('./substract.js');
-const divideNumber = require ('./divide.js');
-const multiplyNumber = require ('./multiply.js')
-const chalk = require ('chalk');
+const rs = require("readline-sync");
+const axios = require("axios");
 
-addNumber(2,3)
-substractNumber(3,2)
-divideNumber(5,2)
-multiplyNumber(2,2)
+const country = rs.question("Insert a country name");
+
+const getCountryData = async (value) => {
+  try {
+    const res = await axios.get(`https://restcountries.com/v3.1/name/${value}?fullText=true`);
+    console.log(res.data);
+  } catch {
+    console.error("An error ocurred my boy :(");
+  }
+};
+
+getCountryData(country);
