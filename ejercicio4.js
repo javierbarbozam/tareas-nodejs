@@ -5,10 +5,12 @@
 // los tipos sean de color amarillo. Si alguno de los parámetros es nulo o indefinido, lanza una excepción
 // con el mensaje "Datos de Pokémon incompletos". (15 puntos)
 
+const chalk = require("chalk");
+
 const PokemonTypes = (value) => {
-  let result = "y es de tipo: ";
+  let result = " y es de tipo: ";
   value.forEach((element) => {
-    result += `${element.type.name} `;
+    result += `${chalk.yellow(element.type.name)} `;
   });
   return result;
 };
@@ -17,10 +19,10 @@ const formatPokemon = (name, type) => {
   if (name === undefined || type === undefined) {
     return "incorrect data, please try again";
   } else {
-    const pokemon = `El nombre del Pokémon es ${name}`;
+    const pokemon = `El nombre del Pokémon es ${chalk.yellow(name)}`;
     const types = PokemonTypes(type);
     const result = pokemon + types;
-    return result;
+    console.log(result);
   }
 };
 

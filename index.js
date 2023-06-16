@@ -13,7 +13,7 @@ const initPokemon = async () => {
   // deestructurando las propiedades para la oración formateada
   const { name, types } = pokemon;
   // ejercicio 5
-  console.log(formatPokemon(name, types));
+  formatPokemon(name, types);
 };
 
 initPokemon();
