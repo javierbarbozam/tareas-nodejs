@@ -1,15 +1,21 @@
 const rs = require("readline-sync");
-const axios = require("axios");
+const searchPokemon = require("./ejercicio3");
+const formatPokemon = require("./ejercicio4");
+const readFile = require("./ejercicio6");
+const writeToFile = require("./ejercicio7");
 
-const countryCode = rs.question("Insert a country code");
+const initPokemon = async () => {
+  const number = rs.question("Insert a number");
 
-const getCountryData = async (value) => {
-  try {
-    const res = await axios.get(`https://restcountries.com/v3.1/alpha/${value}`);
-    console.log(res.data);
-  } catch {
-    console.error("An error ocurred my boy :(");
-  }
+  // guardando pokemon en variable para los demás ejercicios
+  const pokemon = await searchPokemon(number);
+
+  // deestructurando las propiedades para la oración formateada
+  const { name, types } = pokemon;
+  // ejercicio 5
+  console.log(formatPokemon(name, types));
 };
 
-getCountryData(countryCode);
+initPokemon();
+readFile();
+writeToFile("Examen finalizado");
